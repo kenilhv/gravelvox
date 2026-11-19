@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Environments and tool caches
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Downloaded model weights (for example `--model-dir models`)
+/models/
+
+# Audio and video: never commit recordings (consent first). Tests generate their own audio.
+# The patterns match any letter case, so REC001.WAV is ignored on Linux as well.
+*.[wW][aA][vV]
+*.[mM][pP]3
+*.[mM]4[aAbBvV]
+*.[aA][aA][cC]
+*.[fF][lL][aA][cC]
+*.[oO][gG][gGaA]
+*.[oO][pP][uU][sS]
+*.[wW][eE][bB][mM]
+*.[wW][mM][aAvV]
+*.[aA][mM][rR]
+*.[aA][iI][fF]
+*.[aA][iI][fF][fF]
+*.[cC][aA][fF]
+*.3[gG][pP]
+*.3[gG][pP][pP]
+*.[mM][pP]4
+*.[mM][pP][gG]
+*.[mM][pP][eE][gG]
+*.[mM][pP][gG][aA]
+*.[mM][oO][vV]
+*.[mM][kK][vVaA]
+*.[aA][vV][iI]
+
+# Transcripts written next to the code (for example `-o transcript.json`)
+/transcript*.json
+/transcript*.txt
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,47 @@
+[project]
+name = "gravelvox-workspace"
+version = "0.0.0"
+description = "Workspace root for Gravelvox. Not published; the packages live under packages/."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = ["gravelvox-engine"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.13",
+    "pytest>=8.0",
+    "ruff>=0.8",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["packages/*"]
+
+[tool.uv.sources]
+gravelvox-engine = { workspace = true }
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["packages/engine/src", "packages/engine/tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["packages"]
+addopts = "-ra"
+
+[tool.mypy]
+files = ["packages/engine/src"]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+# These ship no type information; the engine treats what they return as Any.
+module = ["faster_whisper", "faster_whisper.*", "ctranslate2", "ctranslate2.*"]
+ignore_missing_imports = true

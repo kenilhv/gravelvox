@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gravelvox-engine"
+version = "0.0.1"
+description = "CPU-first speech-to-text for noisy, real-world audio (early, work in progress)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [{ name = "Gravelvox contributors" }]
+keywords = ["speech-to-text", "whisper", "asr", "voice", "cpu"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Typing :: Typed",
+]
+dependencies = [
+    "faster-whisper>=1.1,<2",
+    # gravelvox decodes audio itself (gravelvox_engine.audio) and hands faster-whisper samples,
+    # so faster-whisper 1.2.1's PyAV 19 incompatibility (SYSTRAN/faster-whisper#1589) and its
+    # silent truncation on damaged packets do not apply.
+    "av>=11",
+    "numpy>=1.24",
+]
+
+[project.urls]
+Repository = "https://github.com/kenilhv/gravelvox"
+Issues = "https://github.com/kenilhv/gravelvox/issues"
+
+[project.scripts]
+gravelvox = "gravelvox_engine.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gravelvox_engine"]
