@@ -10,13 +10,13 @@ Status: early. One provider (`local`) and one CLI command.
 
 ## Install
 
-gravelvox-engine is not published on PyPI yet. Install it from a checkout of the repository, with Python 3.11 to 3.14:
+With Python 3.11 to 3.14:
 
 ```bash
-pip install ./packages/engine
+pip install gravelvox-engine
 ```
 
-Inside the repository you can also use `uv sync` and prefix the commands below with `uv run`.
+This installs the `gravelvox` command. `uv tool install gravelvox-engine` installs it in an environment of its own instead. To work on the code, clone the [repository](https://github.com/kenilhv/gravelvox), run `uv sync` there and prefix the commands below with `uv run`.
 
 ## Command line
 

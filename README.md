@@ -8,7 +8,14 @@ Gravelvox is an open-source toolkit for turning messy, noisy, multi-speaker audi
 
 ## Quickstart
 
-Requires [uv](https://docs.astral.sh/uv/) and Python 3.11 to 3.14, on Windows x64, Linux (x64 or arm64, glibc 2.28 or newer) or macOS 14 or newer on Apple silicon. Python 3.15, Intel Macs, Windows on Arm and Alpine Linux are not supported yet, because onnxruntime or CTranslate2 publish no wheels for them.
+Requires Python 3.11 to 3.14, on Windows x64, Linux (x64 or arm64, glibc 2.28 or newer) or macOS 14 or newer on Apple silicon. Python 3.15, Intel Macs, Windows on Arm and Alpine Linux are not supported yet, because onnxruntime or CTranslate2 publish no wheels for them.
+
+```bash
+uv tool install gravelvox-engine    # or: pip install gravelvox-engine
+gravelvox transcribe path/to/audio.wav
+```
+
+To run it from a checkout instead, with [uv](https://docs.astral.sh/uv/):
 
 ```bash
 git clone https://github.com/kenilhv/gravelvox.git
@@ -16,8 +23,6 @@ cd gravelvox
 uv sync
 uv run gravelvox transcribe path/to/audio.wav
 ```
-
-The package is not on PyPI yet, so install it from a checkout as shown.
 
 The first run downloads the model weights from Hugging Face: about 490 MB for the default `small` model, or 78 MB for `--model tiny`. Later runs load the cached copy without contacting the Hub. Most formats FFmpeg can read work, including wav, mp3, m4a, aac, flac, ogg, opus and webm; gravelvox decodes them with PyAV, so FFmpeg does not need to be installed.
 
