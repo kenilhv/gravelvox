@@ -99,6 +99,8 @@ GRAVELVOX_E2E_AUDIO=path/to/speech.wav uv run pytest -k e2e
 
 In PowerShell: `$env:GRAVELVOX_E2E_AUDIO = "path\to\speech.wav"; uv run pytest -k e2e`.
 
+Releases reach PyPI from a version tag through trusted publishing; see [docs/releasing.md](docs/releasing.md).
+
 ## Repository layout
 
 | Path | Status | Purpose |

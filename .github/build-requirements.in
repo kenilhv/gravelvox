@@ -1,0 +1,3 @@
+# The build backend for gravelvox-engine. The release workflow builds with the hash-pinned
+# versions in build-constraints.txt; docs/releasing.md shows how to refresh them.
+hatchling>=1.27
